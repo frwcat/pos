@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="theme-color" content="#000000"/>
+
+    <meta name="description" content="설치비, 이용료 등 고정비 걱정 없는 무료 모바일 포스 App! 사장님, 지금 바로 이용해 보세요!"/>
+
+    <meta property="og:type" content="website"/>
+
+    <!-- 🔥 id 추가 -->
+    <meta id="og-title" property="og:title" content="IBK기업은행 BOX POS"/>
+    <meta id="og-image" property="og:image" content="/image/test_a.jpg"/>
+    <meta id="og-url" property="og:url" content=""/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+
+    <!-- 🔥 id 추가 -->
+    <meta id="twitter-image" name="twitter:image" content="/image/test_a.jpg"/>
+
+    <title id="title">pos</title>
+
+    <!-- 🔥 핵심: URL 분기 -->
+    <script>
+      const path = window.location.pathname;
+
+      if (path === "/detail") {
+        document.getElementById("og-image")
+          .setAttribute("content", "/image/test_b.jpg");
+
+        document.getElementById("twitter-image")
+          .setAttribute("content", "/image/test_b.jpg");
+
+        document.getElementById("og-title")
+          .setAttribute("content", "디테일 페이지");
+
+        document.getElementById("title").textContent = "디테일 페이지";
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
