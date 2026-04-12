@@ -1,8 +1,8 @@
 import { atom } from "recoil";
+import { persistAtom } from "./Persist";
 
-const 
 export const VanAtom = atom({
     key : "VanAtom",
-    default : "MLPX",
+    default: 'MLPX',
     effects_UNSTABLE : [persistAtom]
-})
+});
