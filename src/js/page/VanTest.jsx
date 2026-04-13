@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Recoil
 import { useRecoilState } from "recoil";
@@ -7,6 +7,7 @@ import { VanAtom } from "../atom/VanAtom";
 // Jotai
 import { useAtom } from "jotai";
 import { VanAtomJotai } from "../atom/VanAtomJotai";
+import { ObjAtomJotai } from "../atom/ObjAtomJotai";
 
 const VanTest = () => {
   // Recoil
@@ -14,12 +15,24 @@ const VanTest = () => {
 
   // Jotai
   const [jotaiVan, setJotaiVan] = useAtom(VanAtomJotai);
+  const [objJotaiAtom, setObjJotaiAtom] = useAtom(ObjAtomJotai);
+
+  useEffect(() => {
+    setObjJotaiAtom(
+      prev => ({
+        ...prev,
+        name : "김중우",
+        bzn : "1234567890",
+        telNo : "01011112222"
+      })
+    )
+  },[])
 
   return (
     <>
     <div style={{ padding: "20px" }}>
       <h2>🔥 Recoil vs Jotai 테스트</h2>
-
+      <h2> JotaiVan이 뭐니? 바로 {objJotaiAtom.name + ' ' + objJotaiAtom.bzn + ' ' + objJotaiAtom.telNo}</h2>
       {/* Recoil */}
       <div style={{ marginBottom: "30px" }}>
         <h3>Recoil</h3>
